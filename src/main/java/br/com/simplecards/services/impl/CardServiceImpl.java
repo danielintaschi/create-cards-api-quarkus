@@ -32,10 +32,10 @@ public class CardServiceImpl implements CardInterface{
 	public String generatedCardNumber() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("1302");
-		for(int i = 0; i < 10; i++) {
-			sb.append(RANDOM.nextInt(10));
-		}
-		return sb.toString();
+			for(int i = 0; i < 10; i++) {
+				sb.append(RANDOM.nextInt(10));
+			}
+			return sb.toString();
 	}
 
 	@Transactional
