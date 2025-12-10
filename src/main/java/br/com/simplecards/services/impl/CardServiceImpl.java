@@ -32,10 +32,10 @@ public class CardServiceImpl implements CardInterface{
 	public String generatedCardNumber() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("1302");
-			for(int i = 0; i < 10; i++) {
-				sb.append(RANDOM.nextInt(10));
-			}
-			return sb.toString();
+		for(int i = 0; i < 10; i++) {
+			sb.append(RANDOM.nextInt(10));
+		}
+		return sb.toString();
 	}
 
 	@Transactional
@@ -77,13 +77,13 @@ public class CardServiceImpl implements CardInterface{
 	@Transactional
 	public Card activateCard(String cardNumber) {	
 		Card card = Card.find("cardNumber", cardNumber).firstResult();
-		if (card == null) {
+		if(card == null) {
 			throw new NoSuchElementException("Cartão " + cardNumber + " não localizado!");
 		}		
 		if(card.getCardStatus() != CardStatus.PENDING_ACTIVATION) {
 			throw new IllegalStateException("Cartão " + cardNumber + " somente poderá ser ativado quando for " + CardType.PHYSICAL + " e estiver com o status " + CardStatus.PENDING_ACTIVATION + " | Status atual: " + card.getCardStatus());
 		}	
-		if (card.getCardStatus() == CardStatus.PENDING_ACTIVATION && card.getCardType() == CardType.PHYSICAL) {
+		if(card.getCardStatus() == CardStatus.PENDING_ACTIVATION && card.getCardType() == CardType.PHYSICAL) {
 			card.setCardStatus(CardStatus.ACTIVATED);
 		}
 		//Publica o evento no tópico Kafka
@@ -112,15 +112,15 @@ public class CardServiceImpl implements CardInterface{
 	@Transactional
 	public List<Card> cancelCard(String cardNumber) {	
 		List<Card> cards = Card.find("cardNumber", cardNumber).list();
-		if (cards == null || cards.isEmpty()) {
+		if(cards == null || cards.isEmpty()) {
 			throw new NoSuchElementException("Cartão " + cardNumber + " não localizado!");
 		}	
-		for (Card c : cards) {
+		for(Card c : cards) {
 			if(c.getCardStatus() != CardStatus.ACTIVATED) {
 				throw new IllegalStateException("Cartão " + cardNumber + " somente poderá ser cancelado quando seu status for " + CardStatus.ACTIVATED + " | Status atual: " + c.getCardStatus());
 			}
 		}
-		for (Card c : cards) {
+		for(Card c : cards) {
 			if(c.getCardStatus() == CardStatus.ACTIVATED) {
 				c.setCardStatus(CardStatus.CANCELED);
 			}
