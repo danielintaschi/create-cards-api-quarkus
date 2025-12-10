@@ -1,0 +1,25 @@
+Configuração Utilizada:
+Quarkus: 3.30.1
+JDK: 21
+Maven: 3.9.11
+
+Inicialização do Projeto:
+	Executar o docker-compose.yml:
+		shell script:
+			docker compose down
+			docker compose up -d 
+	Executar o projeto Quarkus:
+		shell script:
+			./mvnw quarkus:dev
+		terminal:
+			mvn quarkus:dev
+
+Documentação (Swagger UI):
+	http://localhost:8080/q/swagger-ui/#/
+
+Painel Quakus UI:
+	http://localhost:8080/q/dev-ui/extensions
+
+Tópico e Eventos Kakfa:
+	
+	http://localhost:8080/q/dev-ui/quarkus-kafka-client/topics

@@ -81,11 +81,8 @@ public class CardServiceImpl implements CardInterface{
 			throw new NoSuchElementException("Cartão " + cardNumber + " não localizado!");
 		}		
 		if(card.getCardStatus() != CardStatus.PENDING_ACTIVATION) {
-			throw new IllegalStateException("Cartão " + cardNumber + " somente poderá ser ativado quando for " + CardType.PHYSICAL + " e estiver com o status " + CardStatus.PENDING_ACTIVATION);
+			throw new IllegalStateException("Cartão " + cardNumber + " somente poderá ser ativado quando for " + CardType.PHYSICAL + " e estiver com o status " + CardStatus.PENDING_ACTIVATION + " | Status atual: " + card.getCardStatus());
 		}	
-		if(card.getCardStatus() == CardStatus.CANCELED) {
-			throw new IllegalStateException("Cartão " + cardNumber + " encontra-se " + CardStatus.CANCELED + " e não pode ser ativado.");
-		}
 		if (card.getCardStatus() == CardStatus.PENDING_ACTIVATION && card.getCardType() == CardType.PHYSICAL) {
 			card.setCardStatus(CardStatus.ACTIVATED);
 		}
@@ -120,7 +117,7 @@ public class CardServiceImpl implements CardInterface{
 		}	
 		for (Card c : cards) {
 			if(c.getCardStatus() != CardStatus.ACTIVATED) {
-				throw new IllegalStateException("Cartão " + cardNumber + " somente poderá ser cancelado quando o status for " + CardStatus.ACTIVATED);
+				throw new IllegalStateException("Cartão " + cardNumber + " somente poderá ser cancelado quando seu status for " + CardStatus.ACTIVATED + " | Status atual: " + c.getCardStatus());
 			}
 		}
 		for (Card c : cards) {
