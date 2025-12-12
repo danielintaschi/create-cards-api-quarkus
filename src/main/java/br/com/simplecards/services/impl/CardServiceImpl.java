@@ -59,7 +59,6 @@ public class CardServiceImpl implements CardInterface{
 				"cardType":"%s",
 				"cardStatus:"%s",
 				"createdAt":"%s"
-				}
 				""".formatted(
 						c.getCardNumber(),
 						c.getCpf(),

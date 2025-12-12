@@ -54,15 +54,15 @@ public class Card extends PanacheEntityBase {
 	
 	public static List<Card> createCardFromRequest(CreateCardRequest request, String cardNumber) {
 		
-		Card physic = new Card();
-		physic.cardNumber = cardNumber;
-		physic.cpf = request.cpf();
-		physic.namePrinted = request.namePrinted();
-		physic.product = request.product();
-		physic.subproduct = request.subproduct();
-		physic.cardType = CardType.PHYSICAL;
-		physic.cardStatus = CardStatus.PENDING_ACTIVATION;
-		physic.createdAt = LocalDateTime.now();
+		Card physical = new Card();
+		physical.cardNumber = cardNumber;
+		physical.cpf = request.cpf();
+		physical.namePrinted = request.namePrinted();
+		physical.product = request.product();
+		physical.subproduct = request.subproduct();
+		physical.cardType = CardType.PHYSICAL;
+		physical.cardStatus = CardStatus.PENDING_ACTIVATION;
+		physical.createdAt = LocalDateTime.now();
 		
 		Card online = new Card();
 		online.cardNumber = cardNumber;
@@ -74,7 +74,7 @@ public class Card extends PanacheEntityBase {
 		online.cardStatus = CardStatus.ACTIVATED;
 		online.createdAt = LocalDateTime.now();
 
-		return List.of(physic, online);
+		return List.of(physical, online);
 	}
 	
 }
