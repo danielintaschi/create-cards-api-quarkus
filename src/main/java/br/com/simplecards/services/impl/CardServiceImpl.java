@@ -118,12 +118,11 @@ public class CardServiceImpl implements CardInterface{
 			if(c.getCardStatus() != CardStatus.ACTIVATED) {
 				throw new IllegalStateException("Cartão " + cardNumber + " somente poderá ser cancelado quando seu status for " + CardStatus.ACTIVATED + " | Status atual: " + c.getCardStatus());
 			}
-		}
-		for(Card c : cards) {
-			if(c.getCardStatus() == CardStatus.ACTIVATED) {
+			else if(c.getCardStatus() == CardStatus.ACTIVATED) {
 				c.setCardStatus(CardStatus.CANCELED);
 			}
 		}
+				
 		//Publica o evento no tópico Kafka
 		Card c = cards.get(0);
 		String eventJson = """

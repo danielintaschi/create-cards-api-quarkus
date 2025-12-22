@@ -1,0 +1,29 @@
+[33mcommit 59e5441499bb1658d80a142dec17062390820c64[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: DANIEL DE CARVALHO INTASCHI <daniel.intaschi@viavarejo.com.br>
+Date:   Fri Dec 12 09:23:29 2025 -0300
+
+    ajuste de nomenclatura de variaveis
+
+[33mcommit c7131c3b68362ecbfc991830fcafd37470b10856[m
+Author: DANIEL DE CARVALHO INTASCHI <daniel.intaschi@viavarejo.com.br>
+Date:   Wed Dec 10 15:58:32 2025 -0300
+
+    ajuste simples de contexto visual
+
+[33mcommit 4ec3d4bad75a01684088e6da0ce5c073cbd29498[m
+Author: DANIEL DE CARVALHO INTASCHI <daniel.intaschi@viavarejo.com.br>
+Date:   Wed Dec 10 15:54:40 2025 -0300
+
+    Ajuste do tratamento de exceções
+
+[33mcommit 037198881ea779dacbca81186d3c360be6278c62[m
+Author: DANIEL DE CARVALHO INTASCHI <daniel.intaschi@viavarejo.com.br>
+Date:   Wed Dec 10 13:56:20 2025 -0300
+
+    Ajuste descrição ENUM
+
+[33mcommit 7e532eecdb9e77a7976df9117ecb3f3e67e08d82[m
+Author: DANIEL DE CARVALHO INTASCHI <daniel.intaschi@viavarejo.com.br>
+Date:   Wed Dec 10 12:08:47 2025 -0300
+
+    Versão inicial do projeto para geração e controle de cartões de crédito / débito
