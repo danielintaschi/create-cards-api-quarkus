@@ -8,7 +8,7 @@ import jakarta.ws.rs.ext.Provider;
 import jakarta.ws.rs.NotFoundException;
 
 @Provider
-public class GlobalExecptionMapper implements ExceptionMapper<Exception> {
+public class GlobalExceptionMapper implements ExceptionMapper<Exception> {
 
 	@Override
 	public Response toResponse(Exception e) {
